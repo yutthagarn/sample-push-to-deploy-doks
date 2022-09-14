@@ -1,8 +1,8 @@
-import os
 import http.server
+import os
 import socketserver
-
 from http import HTTPStatus
+
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -10,6 +10,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         msg = 'Hello there!! You requested %s' % (self.path)
         self.wfile.write(msg.encode())
+
 
 port = int(os.getenv('PORT', 80))
 print('Listening on port %s' % (port))
